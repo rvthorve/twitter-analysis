@@ -21,7 +21,7 @@ export default function POI() {
     }
     React.useEffect(async ()=>{
         if(poi) {
-            let url = `http://127.0.0.1:5000/tweets?poi=${poi}`
+            let url = `https://3.87.211.154:9999/tweets?poi=${poi}`
             var request = {
                 method: 'GET',
                 headers: {
