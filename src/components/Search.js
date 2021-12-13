@@ -23,7 +23,7 @@ function Search() {
   const [countryValue , setCountry] = React.useState([])
   const [langValue , setLanguage] = React.useState([])
   const [tweets, setTweets] = React.useState(null)
-  // const [news, setNews] = React.useState(null)
+  const [news, setNews] = React.useState(null)
   const [loading, setLoading] = React.useState(false)
   const handleChange = () => {
       setChecked((prev) => !prev);
