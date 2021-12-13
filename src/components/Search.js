@@ -56,7 +56,7 @@ function Search() {
 const submitHandler = async () => {
   setLoading(true)
   if(query!==null) {
-    let url = `https://3.87.211.154:9999/tweets/?query=${query}`
+    let url = `http://3.87.211.154:9999/tweets/?query=${query}`
     // let newsUrl = `https://newsapi.org/v2/everything?q=${query}&sortBy=relevancy&apiKey=7b68fb36cbd144b4bccab639e9247928`
     if(poiValue.length!==0) {
       console.log(poiValue)
