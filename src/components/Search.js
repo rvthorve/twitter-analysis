@@ -56,7 +56,7 @@ function Search() {
 const submitHandler = async () => {
   setLoading(true)
   if(query!==null) {
-    let url = `/tweets?query=${query}`
+    let url = `https://cors-everywhere.herokuapp.com/http://3.87.211.154:9999/tweets?query=${query}`
     // let newsUrl = `https://newsapi.org/v2/everything?q=${query}&sortBy=relevancy&apiKey=7b68fb36cbd144b4bccab639e9247928`
     if(poiValue.length!==0) {
       console.log(poiValue)
@@ -71,14 +71,13 @@ const submitHandler = async () => {
       const langValueUrl = langValue.join()
       url+=`&lang=${langValueUrl}`
     }
-
+    
     var request = {
       method: 'GET',
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods":'GET,PUT,POST,DELETE,PATCH,OPTIONS',
       },
-      baseUrl : 'http://3.87.211.154:9999/',
       url: url
     }
     // const newsRequest = {
@@ -89,7 +88,7 @@ const submitHandler = async () => {
   // const dataArray = await Promise.all([axios.request(request), axios.request(newsRequest)])
     // console.log(url)
   const dataArray = await Promise.all([axios.request(request)])
-  // console.log(dataArray)
+   // console.log(dataArray)
   setTweets(dataArray[0])
   // setNews([])
   // setNews(dataArray[1])
