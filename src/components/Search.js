@@ -14,7 +14,7 @@ import CircularProgress from '@mui/material/CircularProgress'
 import Typography from '@mui/material/Typography';
 import TabsComponent from './Tabs';
 import axios from 'axios';
-import https from 'https';
+
 
 function Search() {
   const [checked, setChecked] = React.useState(false);
@@ -23,7 +23,7 @@ function Search() {
   const [countryValue , setCountry] = React.useState([])
   const [langValue , setLanguage] = React.useState([])
   const [tweets, setTweets] = React.useState(null)
-  const [news, setNews] = React.useState(null)
+  // const [news, setNews] = React.useState(null)
   const [loading, setLoading] = React.useState(false)
   const handleChange = () => {
       setChecked((prev) => !prev);
@@ -56,7 +56,7 @@ function Search() {
 const submitHandler = async () => {
   setLoading(true)
   if(query!==null) {
-    let url = `http://3.87.211.154:9999/tweets/?query=${query}`
+    let url = `https://3.87.211.154:9999/tweets/?query=${query}`
     let newsUrl = `https://newsapi.org/v2/everything?q=${query}&sortBy=relevancy&apiKey=7b68fb36cbd144b4bccab639e9247928`
     if(poiValue.length!==0) {
       console.log(poiValue)
@@ -78,11 +78,7 @@ const submitHandler = async () => {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods":'GET,PUT,POST,DELETE,PATCH,OPTIONS',
       },
-      withCredentials: false,
-      url: url,
-      httpsAgent: new https.Agent({
-        rejectUnauthorized: false
-      })
+      url: url
     }
     const newsRequest = {
       method: 'GET',

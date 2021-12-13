@@ -21,13 +21,12 @@ export default function POI() {
     }
     React.useEffect(async ()=>{
         if(poi) {
-            let url = `http://3.87.211.154:9999/tweets?poi=${poi}`
+            let url = `https://3.87.211.154:9999/tweets?poi=${poi}`
             var request = {
                 method: 'GET',
                 headers: {
                  "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Methods":'GET,PUT,POST,DELETE,PATCH,OPTIONS'},
-                withCredentials: false,
                 url: url,
             }
             const data = await axios.request(request)
