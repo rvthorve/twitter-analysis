@@ -15,8 +15,8 @@ import Pagination from '@mui/material/Pagination';
 import { CardActionArea } from '@mui/material';
 import { TagCloud } from 'react-tagcloud'
 
-
-export default function TabsComponent({tweets, news}) {
+export default function TabsComponent({tweets}) {
+// export default function TabsComponent({tweets, news}) {
   const tweetArray = tweets['data']['docs']
   let isTweet = false
   if(tweetArray.length > 0) {
@@ -42,7 +42,7 @@ export default function TabsComponent({tweets, news}) {
   return (
     <Box sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: "90%", margin: 5, marginBottom: 0 }}>
       <Grid container spacing={2}>
-        <Grid item xs={4}>
+        <Grid item xs={6}>
             <center><b>Tweets</b></center>
             <br/>
           <Paper sx={{ p: '4px', display: 'block', alignItems: 'center', maxHeight:500, overflow: 'auto'}}>
@@ -61,7 +61,7 @@ export default function TabsComponent({tweets, news}) {
             </Box> </div>:  <center><Typography  variant="h6" component="div">No tweets </Typography></center>}
           </Paper>
         </Grid>
-        <Grid item xs={4}>
+        {/* <Grid item xs={4}>
         <center><b>News</b></center>
         <br/>
         <Paper sx={{ p: '4px', display: 'flex', alignItems: 'center', maxHeight:500, overflow: 'auto'}}>
@@ -88,7 +88,6 @@ export default function TabsComponent({tweets, news}) {
                 <Typography variant="h8" color="text.secondary">
                     {value['source']['name']}
                   </Typography>
-                   {/* <Button size="small">Learn More</Button> */}
                 </CardActions>
               </CardActionArea>
               </Card>
@@ -98,8 +97,8 @@ export default function TabsComponent({tweets, news}) {
           </List>
             <br/>
           </Paper>
-        </Grid>
-        <Grid item xs={4}> 
+        </Grid> */}
+        <Grid item xs={6}> 
         <center><b>Analytics</b></center>
             <br/>
         <Paper sx = {{ p: '4px', display: 'block', alignItems: 'center', maxHeight:500, overflow: 'auto'}}>
