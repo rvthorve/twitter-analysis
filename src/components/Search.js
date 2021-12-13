@@ -23,7 +23,7 @@ function Search() {
   const [countryValue , setCountry] = React.useState([])
   const [langValue , setLanguage] = React.useState([])
   const [tweets, setTweets] = React.useState(null)
-  // const [news, setNews] = React.useState(null)
+  const [news, setNews] = React.useState(null)
   const [loading, setLoading] = React.useState(false)
   const handleChange = () => {
       setChecked((prev) => !prev);
@@ -56,7 +56,7 @@ function Search() {
 const submitHandler = async () => {
   setLoading(true)
   if(query!==null) {
-    let url = `https://cors-everywhere.herokuapp.com/http://3.87.211.154:9999/tweets?query=${query}`
+    let url = `https://cors-everywhere.herokuapp.com/http://35.171.19.165:9999/tweets?query=${query}`
     // let newsUrl = `https://newsapi.org/v2/everything?q=${query}&sortBy=relevancy&apiKey=7b68fb36cbd144b4bccab639e9247928`
     if(poiValue.length!==0) {
       console.log(poiValue)
@@ -88,9 +88,10 @@ const submitHandler = async () => {
   // const dataArray = await Promise.all([axios.request(request), axios.request(newsRequest)])
     // console.log(url)
   const dataArray = await Promise.all([axios.request(request)])
-   // console.log(dataArray)
+  console.log(dataArray[0])
   setTweets(dataArray[0])
-  // setNews([])
+  setNews(dataArray[0]['articles'])
+  console.log(dataArray[0]['articles'])
   // setNews(dataArray[1])
   setLoading(false)
   
@@ -231,7 +232,7 @@ const topics = [
     {loading && <Box sx={{ p: '2px 4px', display: 'flex', justifyContent:'center',  alignItems: 'center', width: "90%", margin: 5, marginTop: 0}}>
       <center><CircularProgress /></center>
     </Box>}
-    {tweets  ? <TabsComponent tweets = {tweets} /> : <Box sx={{ p: '2px 4px', display: 'flex', justifyContent:'center',  alignItems: 'center', width: "90%", margin: 5, marginTop: 0}}>
+    {tweets ? <TabsComponent tweets = {tweets} news = {news}/> : <Box sx={{ p: '2px 4px', display: 'flex', justifyContent:'center',  alignItems: 'center', width: "90%", margin: 5, marginTop: 0}}>
       <center><Typography  variant="h6" component="div"> Please enter query </Typography></center></Box>
     }
     <br/>

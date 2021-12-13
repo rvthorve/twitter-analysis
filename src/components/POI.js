@@ -21,7 +21,7 @@ export default function POI() {
     }
     React.useEffect(async ()=>{
         if(poi) {
-            let url = `http://3.87.211.154:9999/tweets?poi=${poi}`
+            let url = `https://cors-everywhere.herokuapp.com/http://35.171.19.165:9999/tweets?poi=${poi}`
             var request = {
                 method: 'GET',
                 headers: {
